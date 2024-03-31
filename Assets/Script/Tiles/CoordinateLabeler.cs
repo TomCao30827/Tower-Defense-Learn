@@ -2,16 +2,25 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 [ExecuteAlways]
 public class CoordinateLabeler : MonoBehaviour
 {
     private TextMeshPro _label;
+    private Color _defaultColor = Color.white;
+    private Color _blockedColor = Color.gray;
+
     private Vector2Int _coordinate = new Vector2Int();
+    private Waypoint _waypoint;
 
     private void Awake()
     {
         _label = GetComponent<TextMeshPro>();
+        _label.enabled = true;
+         
+        _waypoint = GetComponentInParent<Waypoint>();
+
         DisplayCoordinates();
     }
 
@@ -21,6 +30,29 @@ public class CoordinateLabeler : MonoBehaviour
         {
             DisplayCoordinates();
             UpdateObjectName();
+        }
+        ColorCoordiate();
+        ToggleLabels();
+    }
+
+    private void ColorCoordiate()
+    {
+        if (_waypoint.IsPlacable)
+        {
+            _label.color = _defaultColor;
+        }
+
+        else
+        {
+            _label.color = _blockedColor;
+        }
+    }
+
+    private void ToggleLabels()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _label.enabled = !_label.enabled;
         }
     }
 

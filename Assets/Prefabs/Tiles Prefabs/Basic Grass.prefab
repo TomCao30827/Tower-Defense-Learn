@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isPlacable: 1
-  towerPrefab: {fileID: 3219458064393657486, guid: 8a965e088bae16643aab3d07ccfd5e2e, type: 3}
+  towerPrefab: {fileID: 1684903083934683504, guid: c0bd036fbcf01d842a5899787bed4713, type: 3}
 --- !u!1 &4425827645040002648
 GameObject:
   m_ObjectHideFlags: 0

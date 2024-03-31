@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Waypoint : MonoBehaviour
 {
-    [SerializeField] private bool _isPlacable = true;
-
     [SerializeField] private GameObject towerPrefab;
+
+    [SerializeField] private bool _isPlacable = true;
+    public bool IsPlacable { get { return _isPlacable; } }
 
     private void OnMouseDown()
     {

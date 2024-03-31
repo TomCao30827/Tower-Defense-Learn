@@ -4,17 +4,43 @@ using UnityEngine;
 
 public class EnemyMover : MonoBehaviour
 {
-    [SerializeField] private List<Waypoint> l_path = new List<Waypoint>();
+    private Enemy _enemy;
+
+    public List<Waypoint> l_path = new List<Waypoint>();
     [SerializeField][Range(1.0f, 5.0f)] private float speed = 2.0f;
+
+    private void OnEnable()
+    {
+        FindPath();
+        ReturnToStart();
+        StartCoroutine("FollowPath");
+    }
 
     private void Start()
     {
-        StartCoroutine("FollowPath");
+        _enemy = GetComponent<Enemy>();
+    }
+
+    private void FindPath()
+    {
+        l_path.Clear();
+
+        GameObject[] waypoints = GameObject.FindGameObjectsWithTag("Path");
+
+        foreach (GameObject waypoint in waypoints)
+        {
+            l_path.Add(waypoint.GetComponent<Waypoint>());
+        }
+    }
+
+    private void ReturnToStart()
+    {
+        this.transform.position = l_path[0].transform.position;
     }
 
 
     /// <summary>
-    /// The enemy follow the path List using Lerp and corountine
+    /// The enemy follow the List path using Lerp and corountine
     /// </summary>
     /// <returns></returns>
     private IEnumerator FollowPath()
@@ -26,7 +52,7 @@ public class EnemyMover : MonoBehaviour
 
             this.transform.LookAt(endPos);
 
-            float travelPercent = 0;
+            float travelPercent = 0.0f;
 
             while (travelPercent < 1.0f)
             {
@@ -35,5 +61,7 @@ public class EnemyMover : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
         }
+        _enemy.StealGold();
+        gameObject.SetActive(false);
     }
 }
