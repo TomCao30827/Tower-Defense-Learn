@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Enemy))]
 public class EnemyMover : MonoBehaviour
 {
     private Enemy _enemy;
@@ -25,11 +26,15 @@ public class EnemyMover : MonoBehaviour
     {
         l_path.Clear();
 
-        GameObject[] waypoints = GameObject.FindGameObjectsWithTag("Path");
+        GameObject parent = GameObject.FindGameObjectWithTag("Path");
 
-        foreach (GameObject waypoint in waypoints)
+        foreach (Transform child in parent.transform)
         {
-            l_path.Add(waypoint.GetComponent<Waypoint>());
+            Waypoint waypoint = child.GetComponent<Waypoint>();
+            if (waypoint != null )
+            {
+                l_path.Add(waypoint);
+            }
         }
     }
 
@@ -38,6 +43,11 @@ public class EnemyMover : MonoBehaviour
         this.transform.position = l_path[0].transform.position;
     }
 
+    private void FinishPath()
+    {
+        _enemy.StealGold();
+        gameObject.SetActive(false);
+    }
 
     /// <summary>
     /// The enemy follow the List path using Lerp and corountine
@@ -61,7 +71,6 @@ public class EnemyMover : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
         }
-        _enemy.StealGold();
-        gameObject.SetActive(false);
+        FinishPath();
     }
 }

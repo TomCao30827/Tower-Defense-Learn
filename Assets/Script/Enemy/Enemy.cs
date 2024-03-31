@@ -27,7 +27,6 @@ public class Enemy : MonoBehaviour
         if (_bank != null)
         {
             _bank.Withdraw(_goldPenalty);
-            Debug.Log("Applied");
         }
 
     }

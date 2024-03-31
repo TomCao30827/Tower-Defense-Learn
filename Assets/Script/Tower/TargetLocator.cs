@@ -15,11 +15,6 @@ public class TargetLocator : MonoBehaviour
         AimWeapon();
     }
 
-    private float CalcTargetDistance(Enemy enemy)
-    {
-        return Vector3.Distance(this.transform.position, enemy.transform.position);
-    }
-
     private void FindCLosetTarget()
     {
         Enemy[] enemies = FindObjectsOfType<Enemy>();
@@ -27,7 +22,7 @@ public class TargetLocator : MonoBehaviour
         float closetDistance = Mathf.Infinity;
         foreach (Enemy enemy in enemies)
         {
-            float distance = CalcTargetDistance(enemy);
+            float distance = Vector3.Distance(this.transform.position, enemy.transform.position); ;
 
             if (distance < closetDistance)
             {
@@ -42,7 +37,12 @@ public class TargetLocator : MonoBehaviour
 
     private void AimWeapon()
     {
-        float distance = CalcTargetDistance(_target.GetComponent<Enemy>());
+        if (_target == null)
+        {
+            return;
+        }
+
+        float distance = Vector3.Distance(this.transform.position, _target.position);
         _weapon.LookAt(_target);
 
         if (distance < _range)

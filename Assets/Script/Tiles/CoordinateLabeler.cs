@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 [ExecuteAlways]
+[RequireComponent(typeof(TextMeshPro))]
 public class CoordinateLabeler : MonoBehaviour
 {
     private TextMeshPro _label;
@@ -31,11 +32,11 @@ public class CoordinateLabeler : MonoBehaviour
             DisplayCoordinates();
             UpdateObjectName();
         }
-        ColorCoordiate();
+        SetLabelColor();
         ToggleLabels();
     }
 
-    private void ColorCoordiate()
+    private void SetLabelColor()
     {
         if (_waypoint.IsPlacable)
         {
