@@ -14,8 +14,13 @@ public class Bank : MonoBehaviour
     private void Awake()
     {
         _currentBalance = _startMoney;
-
+        _displayBalance.enabled = false;
         UpdateDisplay();
+    }
+
+    private void Update()
+    {
+        ToggleGold();
     }
 
     public void Deposit(int amount)
@@ -40,6 +45,14 @@ public class Bank : MonoBehaviour
     private void UpdateDisplay()
     {
         _displayBalance.text = "Gold: " + _currentBalance.ToString();
+    }
+
+    private void ToggleGold()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _displayBalance.enabled = !_displayBalance.enabled;
+        }
     }
 
     private void ReloadScene()
