@@ -11,13 +11,15 @@ public class CoordinateLabeler : MonoBehaviour
     private TextMeshPro _label;
     private Color _defaultColor = Color.white;
     private Color _blockedColor = Color.gray;
+    private Color _exploredColor = Color.yellow;
+    private Color _pathColor = new Color(1.0f, 0.5f, 0.0f);
 
     private Vector2Int _coordinate = new Vector2Int();
-    private Waypoint _waypoint;
+    private GridManager _gridManager;
 
     private void Awake()
     {
-        _waypoint = GetComponentInParent<Waypoint>();
+        _gridManager = FindObjectOfType<GridManager>();
         _label = GetComponent<TextMeshPro>();
         _label.enabled = true;
          
@@ -38,14 +40,31 @@ public class CoordinateLabeler : MonoBehaviour
 
     private void SetLabelColor()
     {
-        if (_waypoint.IsPlacable)
+        if (_gridManager == null) { return; }
+
+        Node node = _gridManager.GetNode(_coordinate);
+
+        if (node == null) { return; }
+
+        if (!node.isWalkable)
         {
-            _label.color = _defaultColor;
+            _label.color = _blockedColor;
+        }
+
+        else if (node.isPath)
+        {
+            _label.color = _pathColor;
+            
+        }
+
+        else if (node.isExplored)
+        {
+            _label.color = _exploredColor;
         }
 
         else
         {
-            _label.color = _blockedColor;
+            _label.color = _defaultColor;
         }
     }
 
