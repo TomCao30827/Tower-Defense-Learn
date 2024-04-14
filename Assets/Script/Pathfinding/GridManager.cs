@@ -25,6 +25,24 @@ public class GridManager : MonoBehaviour
         return null;
     }
 
+    public void BlockedNode(Vector2Int coordinate)
+    {
+        if (_dictGrid.ContainsKey(coordinate))
+        {
+            _dictGrid[coordinate].isWalkable = false;
+        }
+    }
+
+    public Vector2Int GetCoordinateFromPosition(Vector3 position)
+    {
+        Vector2Int coordinate = new Vector2Int();
+
+        coordinate.x = Mathf.RoundToInt(position.x / 10);
+        coordinate.y = Mathf.RoundToInt(position.z / 10);
+
+        return coordinate;
+    }
+
 
     private void CreateGrid()
     {
