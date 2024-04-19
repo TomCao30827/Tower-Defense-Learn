@@ -5162,7 +5162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ef01038a3c4987428bcce2029c5d1a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gridSize: {x: 5, y: 5}
+  _gridSize: {x: 7, y: 7}
 --- !u!4 &785006414
 Transform:
   m_ObjectHideFlags: 0
@@ -8803,8 +8803,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d69be548aadb4941b402bcb14eaef84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startCoordinate: {x: 7, y: 2}
-  _destinationCoordinate: {x: 7, y: 5}
+  _startCoordinate: {x: 10, y: 6}
+  _destinationCoordinate: {x: 9, y: 4}
 --- !u!4 &1694648438 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4748124786879743466, guid: e35fd85d54db70d44a071b0583fd9e76, type: 3}
@@ -21993,6 +21993,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7198483410265160270}
     m_Modifications:
+    - target: {fileID: 3468477453568179563, guid: e35fd85d54db70d44a071b0583fd9e76, type: 3}
+      propertyPath: _isPlacable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4204144442840102966, guid: e35fd85d54db70d44a071b0583fd9e76, type: 3}
       propertyPath: m_Name
       value: (15, 4)
@@ -22215,6 +22219,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7198483410081363394}
     m_Modifications:
+    - target: {fileID: 3468477453568179563, guid: e35fd85d54db70d44a071b0583fd9e76, type: 3}
+      propertyPath: _isPlacable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4204144442840102966, guid: e35fd85d54db70d44a071b0583fd9e76, type: 3}
       propertyPath: m_Name
       value: (13, 1)
@@ -26009,6 +26017,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7198483410265160270}
     m_Modifications:
+    - target: {fileID: 3468477453568179563, guid: e35fd85d54db70d44a071b0583fd9e76, type: 3}
+      propertyPath: _isPlacable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4204144442840102966, guid: e35fd85d54db70d44a071b0583fd9e76, type: 3}
       propertyPath: m_Name
       value: (8, 4)
@@ -35207,6 +35219,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7198483410696541135}
     m_Modifications:
+    - target: {fileID: 3468477453568179563, guid: e35fd85d54db70d44a071b0583fd9e76, type: 3}
+      propertyPath: _isPlacable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4204144442840102966, guid: e35fd85d54db70d44a071b0583fd9e76, type: 3}
       propertyPath: m_Name
       value: (12, 7)
