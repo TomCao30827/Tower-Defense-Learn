@@ -33,6 +33,15 @@ public class GridManager : MonoBehaviour
         }
     }
 
+    public void ResetNode()
+    {
+        foreach (KeyValuePair<Vector2Int, Node> entry in _dictGrid)
+        {
+            entry.Value.connectedTo = null;
+            entry.Value.isExplored = false;
+            entry.Value.isPath = false;
+        }
+    }
 
     public Vector2Int GetCoordinatesFromPosition(Vector3 position)
     {
@@ -54,9 +63,9 @@ public class GridManager : MonoBehaviour
 
     private void CreateGrid()
     {
-        for (int x = 0 + 7; x < _gridSize.x + 7; x++)
+        for (int x = 0 + 6; x < _gridSize.x + 7; x++)
         {
-            for (int y = 0 + 2; y < _gridSize.y + 2; y++)
+            for (int y = 0 + 1; y < _gridSize.y + 2; y++)
             {
                 Vector2Int coordinate = new Vector2Int(x, y);
                 _dictGrid.Add(coordinate, new Node(coordinate, true));
