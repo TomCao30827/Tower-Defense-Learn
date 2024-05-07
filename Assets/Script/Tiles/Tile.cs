@@ -13,11 +13,13 @@ public class Tile : MonoBehaviour
     private GridManager _gridManager;
     private Vector2Int coordinate = new Vector2Int();
     private Pathfinder _pathFinder;
+    private Bank _bank;
 
     void Awake()
     {
         _gridManager = FindObjectOfType<GridManager>();
         _pathFinder = FindObjectOfType<Pathfinder>();
+        _bank = FindObjectOfType<Bank>();
     }
 
     void Start()
@@ -36,16 +38,20 @@ public class Tile : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (_gridManager.GetNode(coordinate).isWalkable && !_pathFinder.WillBlockPath(coordinate))
+        if (_gridManager.GetNode(coordinate).isWalkable && !_pathFinder.WillBlockPath(coordinate) && _bank.CurrentBalance > 0)
         {
             bool isSuccussful = _towerPrefab.CreateTower(_towerPrefab, transform.position);
-            Debug.Log(isSuccussful);
             if (isSuccussful)
             {
                 _gridManager.BlockNode(coordinate);
                 _pathFinder.NotifyReceivers();
             }
 
+        }
+
+        else
+        {
+            Debug.Log("Khong du tien :D");
         }
     }
 }

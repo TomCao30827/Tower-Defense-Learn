@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Bank : MonoBehaviour
 {
-    [SerializeField] private int _startMoney = 150;
+    public int _startMoney = 15000000;
     [SerializeField] private int _currentBalance;
     [SerializeField] private TextMeshProUGUI _displayBalance;
     public int CurrentBalance {  get { return _currentBalance; } }
