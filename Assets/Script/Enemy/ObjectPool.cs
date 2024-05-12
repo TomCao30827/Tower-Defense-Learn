@@ -9,6 +9,7 @@ public class ObjectPool : MonoBehaviour
     [SerializeField] [Range(1.0f, 10.0f)]private int spawnTimer = 1;
 
     private GameObject[] pool;
+    private SpeedSetter _speedSetter;
 
     private void Awake()
     {
@@ -17,6 +18,7 @@ public class ObjectPool : MonoBehaviour
 
     private void Start()
     {
+        DisableObjectInPool();
         StartCoroutine(SpawnEnemy());
     }
 
@@ -30,9 +32,23 @@ public class ObjectPool : MonoBehaviour
         for (int i = 0; i < poolSize; i++)
         {
             pool[i] = Instantiate(enemyPrefab, this.transform);
-            pool[i].SetActive(false);
+            //pool[i].SetActive(true);
         }
 
+        //for (int i = 0; i < poolSize; i++)
+        //{
+        //    //pool[i] = Instantiate(enemyPrefab, this.transform);
+        //    pool[i].SetActive(true);
+        //}
+    }
+
+    private void DisableObjectInPool()
+    {
+        for (int i = 0; i < poolSize; i++)
+        {
+           //pool[i] = Instantiate(enemyPrefab, this.transform);
+            pool[i].SetActive(false);
+        }
     }
 
     private void EnableObjectInPool()

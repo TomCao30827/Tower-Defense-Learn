@@ -14,7 +14,7 @@ public class Bank : MonoBehaviour
     private void Awake()
     {
         _currentBalance = _startMoney;
-        _displayBalance.enabled = false;
+        _displayBalance.enabled = true;
         UpdateDisplay();
     }
 

@@ -1,5 +1,4 @@
-﻿using NUnit.Framework;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -49,9 +48,5 @@ public class Tile : MonoBehaviour
 
         }
 
-        else
-        {
-            Debug.Log("Khong du tien :D");
-        }
     }
 }

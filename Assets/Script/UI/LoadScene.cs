@@ -8,6 +8,10 @@ public class LoadScene : MonoBehaviour
     public void LoadGameScene(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);
-        Debug.Log(sceneIndex);
+    }
+
+    public void QuitApp()
+    {
+        Application.Quit();
     }
 }

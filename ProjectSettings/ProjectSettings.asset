@@ -673,7 +673,7 @@ PlayerSettings:
   projectName: TowerDefense 2024-03-27_15-55-41
   organizationId: tomcao8702
   cloudEnabled: 0
-  enableNativePlatformBackendsForNewInputSystem: 0
+  enableNativePlatformBackendsForNewInputSystem: 1
   disableOldInputManagerSupport: 0
   legacyClampBlendShapeWeights: 0
   virtualTexturingSupportEnabled: 0

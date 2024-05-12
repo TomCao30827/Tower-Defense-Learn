@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 [ExecuteAlways]
-[RequireComponent(typeof(TextMeshPro))]
+//[RequireComponent(typeof(TextMeshPro))]
 public class CoordinateLabeler : MonoBehaviour
 {
     private TextMeshPro _label;
